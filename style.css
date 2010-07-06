@@ -1,0 +1,76 @@
+#saveToDiv {
+	background-color: #FFFFFF !important;
+	box-shadow:5px 5px 10px #515151 !important;
+	-webkit-box-shadow:0px 0px 10px #515151 !important;
+	border-radius:25px !important;
+	-webkit-border-radius:25px !important;
+	
+	position: absolute !important;
+	left: 70px !important;
+	top: 15px !important;
+	z-index:10 !important;
+	width: 752px !important;
+	height: 80px !important;
+	text-align: center !important;
+	outline: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	line-height: 0 !important;
+	background-image: none !important;
+}
+
+saveToDeliciousBasicButtonsStyle, #saveToDeliciousButton, #saveToGoogleButton,
+#saveToGoogleReaderButton, #saveToTwitterButton, #saveToTechnoratiButton, 
+#saveToBuzzButton, #saveToDiggButton, #saveToRedditButton, #saveToFacebookButton,
+#saveToFriendFeedButton {
+	width: 64px !important;
+	height: 64px !important;
+	border: 0 !important;
+	padding: 0 !important;	
+	float: left !important;
+	cursor: pointer !important;
+	margin-right: 10px !important;
+	margin-top: 8px !important;
+	/*margin-bottom: 4px !important;*/
+}
+
+#saveToDeliciousButton {
+	background: url("images/elegantmediaicons/png/delicious.png") no-repeat !important;
+	margin-left: 10px !important;
+}
+
+#saveToGoogleButton {
+	background: url("images/elegantmediaicons/png/google.png") no-repeat !important;
+}
+
+#saveToGoogleReaderButton {
+	background: url("images/elegantmediaicons/png/rss.png") no-repeat !important;
+}
+
+#saveToTwitterButton {
+	background: url("images/elegantmediaicons/png/twitter.png") no-repeat !important;
+}
+
+#saveToTechnoratiButton {
+	background: url("images/elegantmediaicons/png/technorati.png") no-repeat !important;
+}
+
+#saveToBuzzButton {
+	background: url("images/elegantmediaicons/png/buzz.png") no-repeat !important;
+}
+
+#saveToDiggButton {
+	background: url("images/elegantmediaicons/png/digg.png") no-repeat !important;
+}
+
+#saveToRedditButton {
+	background: url("images/elegantmediaicons/png/reddit.png") no-repeat !important;
+}
+
+#saveToFacebookButton {
+	background: url("images/elegantmediaicons/png/facebook.png") no-repeat !important;
+}
+
+#saveToFriendFeedButton {
+	background: url("images/elegantmediaicons/png/friendfeed.png") no-repeat !important;
+}

@@ -1,0 +1,30 @@
+<html>
+
+<head>
+</head>
+
+<script>
+	function performCommand(event) {
+
+	    if (event.command === "SaveToToolbarItem") {
+			var currentTabUrl = safari.application.activeBrowserWindow.activeTab.url;
+			var currentTabTitle = safari.application.activeBrowserWindow.activeTab.title;
+			var getUrl = 'http://delicious.com/save?url='+currentTabUrl+'&title='+currentTabTitle+'&v=5&noui=1';
+
+			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("showSaveToOptions", getUrl);
+	    }
+	}
+ 
+	function validateCommand(event) {
+	    if (event.command === "SaveToToolbarItem") {
+	        // Disable the button if there is no URL loaded in the tab.
+	        event.target.disabled = !event.target.browserWindow.activeTab.url;
+	    }
+	}
+
+	
+	safari.application.addEventListener("command", performCommand, false);
+	safari.application.addEventListener("validate", validateCommand, false);
+</script>
+
+</html>
