@@ -7,11 +7,15 @@
 	function performCommand(event) {
 
 	    if (event.command === "SaveToToolbarItem") {
-			var currentTabUrl = safari.application.activeBrowserWindow.activeTab.url;
-			var currentTabTitle = safari.application.activeBrowserWindow.activeTab.title;
-			var getUrl = 'http://delicious.com/save?url='+currentTabUrl+'&title='+currentTabTitle+'&v=5&noui=1';
+			var currentTabUrl = encodeURIComponent(safari.application.activeBrowserWindow.activeTab.url);
+			var currentTabTitle = encodeURIComponent(safari.application.activeBrowserWindow.activeTab.title);
+			
+			var jsonBasicData = {
+				"currentTabUrl": currentTabUrl,
+				"currentTabTitle": currentTabTitle
+			};
 
-			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("showSaveToOptions", getUrl);
+			safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("showSaveToOptions", jsonBasicData);
 	    }
 	}
  

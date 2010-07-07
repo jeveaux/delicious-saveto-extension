@@ -1,73 +1,75 @@
 
-function showSaveToOptions(data) {
+function showSaveToOptions(jsonBasicData) {
+	var currentTabUrl = jsonBasicData["currentTabUrl"];
+	var currentTabTitle = jsonBasicData["currentTabTitle"];
 	var theBody = document.body;
 	var previousDiv = document.getElementById("saveToDiv");
 	
-	var jsonData = {
+	var jsonButtonsMetaData = {
 		"saveToButtons": [
-			{"name": "delicious", "onclick": "js aqui", "id": "saveToDeliciousButton", "title": "alguma coisa aqui"},
-			{"name": "delicious", "onclick": "js aqui", "id": "saveToDeliciousButton", "title": "alguma coisa aqui"},
-			{"name": "delicious", "onclick": "js aqui", "id": "saveToDeliciousButton", "title": "alguma coisa aqui"},
-			{"name": "delicious", "onclick": "js aqui", "id": "saveToDeliciousButton", "title": "alguma coisa aqui"},
-			{"name": "delicious", "onclick": "js aqui", "id": "saveToDeliciousButton", "title": "alguma coisa aqui"},
-			{"name": "delicious", "onclick": "js aqui", "id": "saveToDeliciousButton", "title": "alguma coisa aqui"},
-			{"name": "delicious", "onclick": "js aqui", "id": "saveToDeliciousButton", "title": "alguma coisa aqui"}
+			{"name": "delicious", "id": "saveToDeliciousButton", "title": "Save to Delicious", "onclickBehaviour": "true",
+				"onclickUrl": "http://delicious.com/save?v=5&noui&jump=close&url="+currentTabUrl+"&title="+currentTabTitle},
+			{"name": "twitter", "id": "saveToTwitterButton", "title": "Save to Twitter", "onclickBehaviour": "true",
+				"onclickUrl": "http://twitter.com/home?status=" + currentTabTitle + " - " + currentTabUrl},
+			{"name": "google", "id": "saveToGoogleButton", "title": "Save to Google Bookmarks", "onclickBehaviour": "true",
+				"onclickUrl": "http://www.google.com/bookmarks/mark?op=add&amp;bkmk=" + currentTabUrl + "&amp;title=" + currentTabTitle},
+			{"name": "technorati", "id": "saveToTechnoratiButton", "title": "Save to Technorati", "onclickBehaviour": "true",
+				"onclickUrl": "http://technorati.com/faves?add=" + currentTabUrl},
+			{"name": "buzz", "id": "saveToBuzzButton", "title": "Save to Y! Buzz", "onclickBehaviour": "true",
+				"onclickUrl": "js aqui"},
+			{"name": "digg", "id": "saveToDiggButton", "title": "Save to Digg", "onclickBehaviour": "true",
+				"onclickUrl": "http://digg.com/submit?phase=2&amp;url=" + currentTabUrl + "&amp;title=" + currentTabTitle},
+			{"name": "reddit", "id": "saveToRedditButton", "title": "Save to Reddit", "onclickBehaviour": "true",
+				"onclickUrl": "js aqui"},
+			{"name": "facebook", "id": "saveToFacebookButton", "title": "Save to Facebook", "onclickBehaviour": "true",
+				"onclickUrl": "http://www.facebook.com/share.php?u=" + currentTabUrl + "&amp;t=" + currentTabTitle},
+			{"name": "friendfeed", "id": "saveToFriendFeedButton", "title": "Save to FriendFeed", "onclickBehaviour": "true",
+				"onclickUrl": "js aqui"},
+			{"name": "googlereader", "id": "saveToGoogleReaderButton", "title": "Save to Google Reader", "onclickBehaviour": "true",
+				"onclickUrl": "js aqui"}
 	    ]
 	};
-	
+
 	if(previousDiv != null) {
-		theBody.removeChild(previousDiv);
+		removeSaveToDiv();
 	} else {
-		// Elements
 		var saveToDiv = document.createElement("div");
-		var saveToDeliciousButton = document.createElement("div");
-		var saveToTwitterButton = document.createElement("div");
-		var saveToGoogleButton = document.createElement("div");
-		var saveToGoogleReaderButton = document.createElement("div");
-		var saveToTechnoratiButton = document.createElement("div");
-		var saveToBuzzButton = document.createElement("div");
-		var saveToDiggButton = document.createElement("div");
-		var saveToRedditButton = document.createElement("div");
-		var saveToFacebookButton = document.createElement("div");
-		var saveToFriendFeedButton = document.createElement("div");
-	
-		// Elements attributes
-		saveToDeliciousButton = setBasicButtonAttributes(saveToDeliciousButton, 'saveToDeliciousButton');
-		saveToDeliciousButton.setAttribute('onclick', 'javascript:window.open(\'' + data + '\', \'deliciousuiv5\',\'location=yes,links=no,scrollbars=no,toolbar=no,width=550,height=550\'); return false;');
-		saveToTwitterButton = setBasicButtonAttributes(saveToTwitterButton, 'saveToTwitterButton');
-		saveToTwitterButton.setAttribute('onclick', 'javascript:window.open(\'' + data + '\', \'deliciousuiv5\',\'location=yes,links=no,scrollbars=no,toolbar=no,width=550,height=550\'); return false;');
-		saveToGoogleButton = setBasicButtonAttributes(saveToGoogleButton, 'saveToGoogleButton');
-		saveToTechnoratiButton = setBasicButtonAttributes(saveToTechnoratiButton, 'saveToTechnoratiButton');
-		saveToBuzzButton = setBasicButtonAttributes(saveToBuzzButton, 'saveToBuzzButton');
-		saveToDiggButton = setBasicButtonAttributes(saveToDiggButton, 'saveToDiggButton');
-		saveToRedditButton = setBasicButtonAttributes(saveToRedditButton, 'saveToRedditButton');
-		saveToGoogleReaderButton = setBasicButtonAttributes(saveToGoogleReaderButton, 'saveToGoogleReaderButton');
-		saveToFacebookButton = setBasicButtonAttributes(saveToFacebookButton, 'saveToFacebookButton');
-		saveToFriendFeedButton = setBasicButtonAttributes(saveToFriendFeedButton, 'saveToFriendFeedButton');
-	
-		saveToDiv.setAttribute('id', 'saveToDiv');
-	
-		// ?
-	
-		saveToDiv.appendChild(saveToDeliciousButton);
-		saveToDiv.appendChild(saveToTwitterButton);
-		saveToDiv.appendChild(saveToGoogleButton);
-		saveToDiv.appendChild(saveToTechnoratiButton);
-		saveToDiv.appendChild(saveToBuzzButton);
-		saveToDiv.appendChild(saveToDiggButton);
-		saveToDiv.appendChild(saveToRedditButton);
-		saveToDiv.appendChild(saveToFriendFeedButton);
-		saveToDiv.appendChild(saveToFacebookButton);
-		saveToDiv.appendChild(saveToGoogleReaderButton);
+		saveToDiv.setAttribute("id", "saveToDiv");
+
+		for(var currentButton in jsonButtonsMetaData["saveToButtons"]) {
+			var saveToButtonDiv = document.createElement("div");
+			saveToButtonDiv = setBasicButtonAttributes(saveToButtonDiv, 
+				jsonButtonsMetaData["saveToButtons"][currentButton]["name"],
+				jsonButtonsMetaData["saveToButtons"][currentButton]["id"],
+				jsonButtonsMetaData["saveToButtons"][currentButton]["title"],
+				jsonButtonsMetaData["saveToButtons"][currentButton]["onclickUrl"],
+				jsonButtonsMetaData["saveToButtons"][currentButton]["onclickBehaviour"]);
+			saveToDiv.appendChild(saveToButtonDiv);
+		}
 	
 		theBody.appendChild(saveToDiv);
 	}
 }
 
-function setBasicButtonAttributes(div, divIdName) {
-	div.setAttribute('id', divIdName);
-	div.setAttribute('title', 'bla bla bla');
+function setBasicButtonAttributes(div, divName, divId, divTitle, divOnClickUrl, onclickPopup) {
+	div.setAttribute("name", divName);
+	div.setAttribute("id", divId);
+	div.setAttribute("title", divTitle);
+	
+	var onclickBehaviour = "";
+	if(onclickPopup)
+		onclickBehaviour += "javascript:window.open('" + divOnClickUrl + "', '" + divName + "','location=yes,links=no,scrollbars=no,toolbar=no,width=750,height=550');";
+	else
+		onclickBehaviour += "javascript:window.open('" + divOnClickUrl + "');";
+	
+	onclickBehaviour += "document.body.removeChild(document.getElementById('saveToDiv'));; return false;";
+	
+	div.setAttribute("onclick", onclickBehaviour);
 	return div;
+}
+
+function removeSaveToDiv() {
+	document.body.removeChild(document.getElementById("saveToDiv"));
 }
 
 function handleMessage(msgEvent) {
