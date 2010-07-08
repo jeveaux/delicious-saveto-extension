@@ -12,21 +12,19 @@ function showSaveToOptions(jsonBasicData) {
 			{"name": "twitter", "id": "saveToTwitterButton", "title": "Save to Twitter", "onclickBehaviour": "true",
 				"onclickUrl": "http://twitter.com/home?status=" + currentTabTitle + " - " + currentTabUrl},
 			{"name": "google", "id": "saveToGoogleButton", "title": "Save to Google Bookmarks", "onclickBehaviour": "true",
-				"onclickUrl": "http://www.google.com/bookmarks/mark?op=add&amp;bkmk=" + currentTabUrl + "&amp;title=" + currentTabTitle},
+				"onclickUrl": "http://www.google.com/bookmarks/mark?op=add&bkmk=" + currentTabUrl + "&title=" + currentTabTitle},
 			{"name": "technorati", "id": "saveToTechnoratiButton", "title": "Save to Technorati", "onclickBehaviour": "true",
 				"onclickUrl": "http://technorati.com/faves?add=" + currentTabUrl},
-			{"name": "buzz", "id": "saveToBuzzButton", "title": "Save to Y! Buzz", "onclickBehaviour": "true",
-				"onclickUrl": "js aqui"},
 			{"name": "digg", "id": "saveToDiggButton", "title": "Save to Digg", "onclickBehaviour": "true",
-				"onclickUrl": "http://digg.com/submit?phase=2&amp;url=" + currentTabUrl + "&amp;title=" + currentTabTitle},
+				"onclickUrl": "http://digg.com/submit?phase=2&url=" + currentTabUrl + "&title=" + currentTabTitle},
 			{"name": "reddit", "id": "saveToRedditButton", "title": "Save to Reddit", "onclickBehaviour": "true",
-				"onclickUrl": "js aqui"},
+				"onclickUrl": "http://reddit.com/submit?url=" + currentTabUrl + "&title=" + currentTabTitle},
 			{"name": "facebook", "id": "saveToFacebookButton", "title": "Save to Facebook", "onclickBehaviour": "true",
-				"onclickUrl": "http://www.facebook.com/share.php?u=" + currentTabUrl + "&amp;t=" + currentTabTitle},
+				"onclickUrl": "http://www.facebook.com/share.php?u=" + currentTabUrl + "&t=" + currentTabTitle},
 			{"name": "friendfeed", "id": "saveToFriendFeedButton", "title": "Save to FriendFeed", "onclickBehaviour": "true",
-				"onclickUrl": "js aqui"},
+				"onclickUrl": "http://friendfeed.com/?url=" + currentTabUrl + "&title=" + currentTabTitle},
 			{"name": "googlereader", "id": "saveToGoogleReaderButton", "title": "Save to Google Reader", "onclickBehaviour": "true",
-				"onclickUrl": "js aqui"}
+				"onclickUrl": "http://www.google.com/reader/link?url=" + currentTabUrl + "&title=" + currentTabTitle}
 	    ]
 	};
 

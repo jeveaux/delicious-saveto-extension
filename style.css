@@ -4,12 +4,11 @@
 	-webkit-box-shadow:0px 0px 15px #515151 !important;
 	border-radius:25px !important;
 	-webkit-border-radius:25px !important;
-	
 	position: absolute !important;
 	left: 70px !important;
 	top: 15px !important;
-	z-index:10 !important;
-	width: 752px !important;
+	z-index:9999 !important;
+	width: 676px !important;
 	height: 80px !important;
 	text-align: center !important;
 	outline: 0 !important;
@@ -53,10 +52,6 @@ saveToDeliciousBasicButtonsStyle, #saveToDeliciousButton, #saveToGoogleButton,
 
 #saveToTechnoratiButton {
 	background: url("images/elegantmediaicons/png/technorati.png") no-repeat !important;
-}
-
-#saveToBuzzButton {
-	background: url("images/elegantmediaicons/png/buzz.png") no-repeat !important;
 }
 
 #saveToDiggButton {
