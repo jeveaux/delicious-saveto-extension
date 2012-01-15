@@ -21,6 +21,9 @@ function showSaveToOptions(jsonBasicData) {
 				"onclickUrl": "http://reddit.com/submit?url=" + currentTabUrl + "&title=" + currentTabTitle},
 			{"name": "facebook", "id": "saveToFacebookButton", "title": "Save to Facebook", "onclickBehaviour": "true",
 				"onclickUrl": "http://www.facebook.com/share.php?u=" + currentTabUrl + "&t=" + currentTabTitle},
+			{"name": "vkontakte", "id": "saveToVkontakteButton", "title": "Save to Vkontakte", "onclickBehaviour": "true",
+				"onclickUrl": "http://vkontakte.ru/share.php?url=" + currentTabUrl},
+
 			{"name": "friendfeed", "id": "saveToFriendFeedButton", "title": "Save to FriendFeed", "onclickBehaviour": "true",
 				"onclickUrl": "http://friendfeed.com/?url=" + currentTabUrl + "&title=" + currentTabTitle},
 			{"name": "googlereader", "id": "saveToGoogleReaderButton", "title": "Save to Google Reader", "onclickBehaviour": "true",
